@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image, TextInput, Button } from "react-native";
-import { useState } from "react"; 
+import { View, Text, StyleSheet, Image, TextInput, Button, ScrollView, TouchableOpacity } from "react-native"; // Adicione ScrollView e TouchableOpacity
+import { useState } from "react";
 
 interface Tarefa {
   id: number;
@@ -9,6 +9,21 @@ interface Tarefa {
 export default function App() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
   const [textoTarefa, setTextoTarefa] = useState("");
+
+  const adicionarTarefa = () => {
+    if (textoTarefa.trim() !== "") {
+      const novaTarefa: Tarefa = {
+        id: Date.now(),
+        texto: textoTarefa.trim()
+      };
+      setTarefas([...tarefas, novaTarefa]);
+      setTextoTarefa("");
+    }
+  };
+
+  const excluirTarefa = (id: number) => {
+    setTarefas(tarefas.filter(tarefa => tarefa.id !== id)); 
+  };
 
   return( 
     <View style={styles.container}>
@@ -21,10 +36,27 @@ export default function App() {
         style={styles.input}
         placeholder="Digite uma tarefa"
         placeholderTextColor="#888"
+        value={textoTarefa}
+        onChangeText={setTextoTarefa}
       />
       <View style={styles.buttonContainer}>
-        <Button title="Enviar" onPress={( ) => {}} color="#2D2DFF" />
+        <Button title="Enviar" onPress={adicionarTarefa} color="#2D2DFF" />
       </View>
+      
+    
+      <ScrollView style={styles.tarefasContainer} showsVerticalScrollIndicator={false}> {}
+        {tarefas.map((tarefa ) => (
+          <View key={tarefa.id} style={styles.tarefaItem}> {}
+            <Text style={styles.tarefaTexto}>{tarefa.texto}</Text> {}
+            <TouchableOpacity 
+              style={styles.botaoExcluir} 
+              onPress={() => excluirTarefa(tarefa.id)}
+            >
+              <Text style={styles.textoExcluir}>Excluir</Text> {}
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   )
 }
