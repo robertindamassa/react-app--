@@ -13,7 +13,6 @@ export default function App() {
      <View style={styles.buttonContainer}>
         <Button title="Enviar" onPress={() => {}} color="#2D2DFF" />
       </View>
-
     </View>
   )
 }
@@ -53,11 +52,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 500, 
     alignSelf: "center",
-    marginTop: 30,
+    marginTop: 500,
+    marginBottom: 80,
   },
   buttonContainer: {
     width: "80%",
-    marginTop: 400,
+    marginTop: 300,
     borderRadius: 8,
     overflow: "hidden",
   },
