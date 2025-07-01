@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet, Image } from "react-native";
 
 export default function App() {
-  return (
+  return( 
     <View style={styles.container}>
-      <Text>OLA MUNDO !!! </Text>
-      <StatusBar style="auto" />
+      <Image
+        source={require("./assets/lista.png")}
+        style={styles.logo}
+      />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F3F3FF",
   },
-});
+  logo: {
+    width: 100,
+    height: 100,
+    resizeMode: "contain",
+  },
