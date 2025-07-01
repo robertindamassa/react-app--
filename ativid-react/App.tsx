@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
  },
   input: { 
     width: "80%",
-    height: 40,
+    height: 50,
     borderColor: "#2D2DFF",
     borderWidth: 1,
     borderRadius: 8,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#222",
     position: "absolute",
-    bottom: 40,
+    bottom: 500,
     alignSelf: "center",
   },
 });
