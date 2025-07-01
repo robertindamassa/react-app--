@@ -101,4 +101,45 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: "hidden",
   },
+  tarefasContainer: {
+    width: "80%",
+    marginTop: 20,
+    maxHeight: 300, // Limitar altura para permitir scroll
+  },
+  tarefaItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderColor: "#2D2DFF",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 15,
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5, // Para Android
+  },
+  tarefaTexto: {
+    flex: 1,
+    fontSize: 16,
+    color: "#222",
+    marginRight: 10,
+  },
+  botaoExcluir: {
+    backgroundColor: "#FF4444",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 5,
+  },
+  textoExcluir: {
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "bold",
+  },
 });
