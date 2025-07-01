@@ -1,28 +1,42 @@
 import { View, Text, StyleSheet, Image, TextInput, Button, ScrollView, TouchableOpacity } from "react-native";
 import { useState } from "react";
+import { MaterialIcons } from '@expo/vector-icons'; // Adicionado para ícones
 
 interface Tarefa {
   id: number;
-  texto: string;
+  nome: string;
+  descricao: string;
+  concluida: boolean; // Novo campo
 }
 
 export default function App() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
-  const [textoTarefa, setTextoTarefa] = useState("");
+  const [nomeTarefa, setNomeTarefa] = useState("");
+  const [descricaoTarefa, setDescricaoTarefa] = useState("");
 
   const adicionarTarefa = () => {
-    if (textoTarefa.trim() !== "") {
+    if (nomeTarefa.trim() !== "" && descricaoTarefa.trim() !== "") {
       const novaTarefa: Tarefa = {
         id: Date.now(),
-        texto: textoTarefa.trim()
+        nome: nomeTarefa.trim(),
+        descricao: descricaoTarefa.trim(),
+        concluida: false, // Inicialmente não concluída
       };
       setTarefas([...tarefas, novaTarefa]);
-      setTextoTarefa("");
+      setNomeTarefa("");
+      setDescricaoTarefa("");
     }
   };
 
   const excluirTarefa = (id: number) => {
     setTarefas(tarefas.filter(tarefa => tarefa.id !== id));
+  };
+
+  // Alterna o estado de concluída da tarefa
+  const alternarConcluida = (id: number) => {
+    setTarefas(tarefas.map(tarefa =>
+      tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
+    ));
   };
 
   return( 
@@ -34,19 +48,47 @@ export default function App() {
       />
       <TextInput
         style={styles.input}
-        placeholder="Digite uma tarefa"
+        placeholder="Nome da tarefa"
         placeholderTextColor="#888"
-        value={textoTarefa}
-        onChangeText={setTextoTarefa}
+        value={nomeTarefa}
+        onChangeText={setNomeTarefa}
+      />
+      <TextInput
+        style={[styles.input, {marginTop: 10}]}
+        placeholder="Descrição da tarefa"
+        placeholderTextColor="#888"
+        value={descricaoTarefa}
+        onChangeText={setDescricaoTarefa}
+        multiline
       />
       <View style={styles.buttonContainer}>
         <Button title="Enviar" onPress={adicionarTarefa} color="#2D2DFF" />
       </View>
-      
       <ScrollView style={styles.tarefasContainer} showsVerticalScrollIndicator={false}>
         {tarefas.map((tarefa ) => (
           <View key={tarefa.id} style={styles.tarefaItem}>
-            <Text style={styles.tarefaTexto}>{tarefa.texto}</Text>
+            {/* Ícone de status */}
+            <TouchableOpacity onPress={() => alternarConcluida(tarefa.id)} style={{marginRight: 10}}>
+              <MaterialIcons
+                name={tarefa.concluida ? "check-circle" : "radio-button-unchecked"}
+                size={28}
+                color={tarefa.concluida ? "#2D2DFF" : "#888"}
+              />
+            </TouchableOpacity>
+            <View style={{flex: 1}}>
+              {/* Nome da tarefa com efeito riscado se concluída */}
+              <TouchableOpacity onPress={() => alternarConcluida(tarefa.id)}>
+                <Text
+                  style={[
+                    styles.tarefaTexto,
+                    tarefa.concluida && styles.tarefaConcluida
+                  ]}
+                >
+                  {tarefa.nome}
+                </Text>
+              </TouchableOpacity>
+              <Text style={styles.tarefaDescricao}>{tarefa.descricao}</Text>
+            </View>
             <TouchableOpacity 
               style={styles.botaoExcluir}
               onPress={() => excluirTarefa(tarefa.id)}
@@ -130,6 +172,10 @@ const styles = StyleSheet.create({
     color: "#222",
     marginRight: 10,
   },
+  tarefaConcluida: {
+    textDecorationLine: "line-through",
+    color: "#888",
+  },
   botaoExcluir: {
     backgroundColor: "#FF4444",
     paddingHorizontal: 12,
@@ -140,5 +186,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 12,
     fontWeight: "bold",
+  },
+  tarefaDescricao: {
+    fontSize: 14,
+    color: "#666",
+    marginTop: 4,
   },
 });
