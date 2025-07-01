@@ -3,18 +3,17 @@ import { View, Text, StyleSheet, Image, TextInput, Button } from "react-native";
 export default function App() {
   return( 
     <View style={styles.container}>
-     
       <Text style={styles.title}>TAREFAS</Text>
       <Image
         source={{ uri: "https://cdn-icons-png.flaticon.com/512/1582/1582717.png" }}
         style={styles.logo}
       />
       <TextInput
-      style={styles.input}
-      placeholder="Digite uma tarefa"
-      placeholderTextColor="#888"
+        style={styles.input}
+        placeholder="Digite uma tarefa"
+        placeholderTextColor="#888"
       />
-     <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <Button title="Enviar" onPress={() => {}} color="#2D2DFF" />
       </View>
     </View>
@@ -32,18 +31,16 @@ const styles = StyleSheet.create({
     width: 200,
     height: 100,
     resizeMode: "contain",
-    marginVertical: 2
+    marginVertical: 20,
   },
-
   title: {
-  fontSize: 24,
-  color: "#2D2DFF",
-  marginTop: 40,
-  fontWeight: "bold",
-  letterSpacing: 2,
-  textTransform: "uppercase",
-  
- },
+    fontSize: 24,
+    color: "#2D2DFF",
+    marginTop: 40,
+    fontWeight: "bold",
+    letterSpacing: 2,
+    textTransform: "uppercase",
+  },
   input: { 
     width: "80%",
     height: 40,
@@ -54,20 +51,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     fontSize: 16,
     color: "#222",
-    position: "absolute",
-    bottom: 500, 
-    alignSelf: "center",
-    marginTop: 500,
-    marginBottom: 80,
+    marginTop: 30,
+    marginBottom: 30,
   },
   buttonContainer: {
     width: "80%",
-    marginTop: 300,
+    marginTop: 10,
     borderRadius: 8,
     overflow: "hidden",
   },
 });
-
-
-
-
