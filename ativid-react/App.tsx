@@ -5,6 +5,10 @@ export default function App() {
     <View style={styles.container}>
      
       <Text style={styles.title}>TAREFAS</Text>
+      <Image
+        source={{ uri: "https://cdn-icons-png.flaticon.com/512/1582/1582717.png" }}
+        style={styles.logo}
+      />
       <TextInput
       style={styles.input}
       placeholder="Digite uma tarefa"
@@ -25,9 +29,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#F3F3FF",
   },
   logo: {
-    width: 100,
+    width: 200,
     height: 100,
     resizeMode: "contain",
+    marginVertical: 2
   },
 
   title: {
