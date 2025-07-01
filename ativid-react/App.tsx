@@ -1,11 +1,15 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TextInput } from "react-native";
 
 export default function App() {
   return( 
     <View style={styles.container}>
      
       <Text style={styles.title}>TAREFAS</Text>
-
+      <TextInput
+      style={styles.input}
+      placeholder="Digite uma tarefa"
+      placeholderTextColor="#888"
+      />
     </View>
   )
 }
@@ -30,6 +34,21 @@ const styles = StyleSheet.create({
   fontWeight: "bold",
   letterSpacing: 2,
   textTransform: "uppercase",
-},
+  
+ },
+  input: { 
+    width: "80%",
+    height: 40,
+    borderColor: "#2D2DFF",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    backgroundColor: "#fff",
+    fontSize: 16,
+    color: "#222",
+    position: "absolute",
+    bottom: 40,
+    alignSelf: "center",
+  },
 });
 
