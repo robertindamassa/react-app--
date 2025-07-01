@@ -4,7 +4,7 @@ export default function App() {
   return( 
     <View style={styles.container}>
      
-      <Text style={{ fontSize: 20, color: "#000" }}>TAREFAS</Text>
+      <Text style={styles.title}>TAREFAS</Text>
 
     </View>
   )
@@ -13,7 +13,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start", 
     alignItems: "center",
     backgroundColor: "#F3F3FF",
   },
@@ -23,4 +23,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 
+  title: {
+  fontSize: 24,
+  color: "#2D2DFF",
+  marginTop: 40,
+  fontWeight: "bold",
+  letterSpacing: 2,
+  textTransform: "uppercase",
+},
 });
+
