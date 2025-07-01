@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput } from "react-native";
+import { View, Text, StyleSheet, Image, TextInput, Button } from "react-native";
 
 export default function App() {
   return( 
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
  },
   input: { 
     width: "80%",
-    height: 50,
+    height: 40,
     borderColor: "#2D2DFF",
     borderWidth: 1,
     borderRadius: 8,
@@ -52,8 +52,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     fontSize: 16,
     color: "#222",
-    marginBottom: 20, 
-},
+    position: "absolute",
+    bottom: 500, 
+    alignSelf: "center",
+  },
   buttonContainer: {
     width: "80%",
     marginTop: 20,
