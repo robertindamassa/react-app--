@@ -3,10 +3,9 @@ import { View, Text, StyleSheet, Image } from "react-native";
 export default function App() {
   return( 
     <View style={styles.container}>
-      <Image
-        source={require("./assets/lista.png")}
-        style={styles.logo}
-      />
+     
+      <Text style={{ fontSize: 20, color: "#000" }}>TAREFAS</Text>
+
     </View>
   )
 }
@@ -24,4 +23,4 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 
- 
+});
