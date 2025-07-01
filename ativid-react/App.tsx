@@ -10,6 +10,12 @@ export default function App() {
       placeholder="Digite uma tarefa"
       placeholderTextColor="#888"
       />
+     <View style={styles.buttonContainer}>
+        <Button title="Enviar" onPress={() => {}} color="#2D2DFF" />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Outro Botão" onPress={() => {}} color="#888" />
+      </View>
     </View>
   )
 }
@@ -46,9 +52,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     fontSize: 16,
     color: "#222",
-    position: "absolute",
-    bottom: 500,
-    alignSelf: "center",
+    marginBottom: 20, 
+},
+  buttonContainer: {
+    width: "80%",
+    marginTop: 20,
+    borderRadius: 8,
+    overflow: "hidden",
   },
 });
 
