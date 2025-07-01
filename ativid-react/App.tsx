@@ -13,9 +13,7 @@ export default function App() {
      <View style={styles.buttonContainer}>
         <Button title="Enviar" onPress={() => {}} color="#2D2DFF" />
       </View>
-      <View style={styles.buttonContainer}>
-        <Button title="Outro Botão" onPress={() => {}} color="#888" />
-      </View>
+
     </View>
   )
 }
@@ -55,10 +53,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 500, 
     alignSelf: "center",
+    marginTop: 30,
   },
   buttonContainer: {
     width: "80%",
-    marginTop: 20,
+    marginTop: 400,
     borderRadius: 8,
     overflow: "hidden",
   },
