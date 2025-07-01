@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput, Button, ScrollView, TouchableOpacity } from "react-native"; // Adicione ScrollView e TouchableOpacity
+import { View, Text, StyleSheet, Image, TextInput, Button, ScrollView, TouchableOpacity } from "react-native";
 import { useState } from "react";
 
 interface Tarefa {
@@ -22,7 +22,7 @@ export default function App() {
   };
 
   const excluirTarefa = (id: number) => {
-    setTarefas(tarefas.filter(tarefa => tarefa.id !== id)); 
+    setTarefas(tarefas.filter(tarefa => tarefa.id !== id));
   };
 
   return( 
@@ -43,16 +43,15 @@ export default function App() {
         <Button title="Enviar" onPress={adicionarTarefa} color="#2D2DFF" />
       </View>
       
-    
-      <ScrollView style={styles.tarefasContainer} showsVerticalScrollIndicator={false}> {}
+      <ScrollView style={styles.tarefasContainer} showsVerticalScrollIndicator={false}>
         {tarefas.map((tarefa ) => (
-          <View key={tarefa.id} style={styles.tarefaItem}> {}
-            <Text style={styles.tarefaTexto}>{tarefa.texto}</Text> {}
+          <View key={tarefa.id} style={styles.tarefaItem}>
+            <Text style={styles.tarefaTexto}>{tarefa.texto}</Text>
             <TouchableOpacity 
-              style={styles.botaoExcluir} 
+              style={styles.botaoExcluir}
               onPress={() => excluirTarefa(tarefa.id)}
             >
-              <Text style={styles.textoExcluir}>Excluir</Text> {}
+              <Text style={styles.textoExcluir}>Excluir</Text>
             </TouchableOpacity>
           </View>
         ))}
@@ -100,5 +99,46 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderRadius: 8,
     overflow: "hidden",
+  },
+  tarefasContainer: {
+    width: "80%",
+    marginTop: 20,
+    maxHeight: 300, 
+  },
+  tarefaItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderColor: "#2D2DFF",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 15,
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  tarefaTexto: {
+    flex: 1,
+    fontSize: 16,
+    color: "#222",
+    marginRight: 10,
+  },
+  botaoExcluir: {
+    backgroundColor: "#FF4444",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 5,
+  },
+  textoExcluir: {
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "bold",
   },
 });
