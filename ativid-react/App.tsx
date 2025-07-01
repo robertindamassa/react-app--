@@ -1,6 +1,15 @@
 import { View, Text, StyleSheet, Image, TextInput, Button } from "react-native";
+import { useState } from "react"; 
+
+interface Tarefa {
+  id: number;
+  texto: string;
+}
 
 export default function App() {
+  const [tarefas, setTarefas] = useState<Tarefa[]>([]);
+  const [textoTarefa, setTextoTarefa] = useState("");
+
   return( 
     <View style={styles.container}>
       <Text style={styles.title}>TAREFAS</Text>
@@ -14,7 +23,7 @@ export default function App() {
         placeholderTextColor="#888"
       />
       <View style={styles.buttonContainer}>
-        <Button title="Enviar" onPress={() => {}} color="#2D2DFF" />
+        <Button title="Enviar" onPress={( ) => {}} color="#2D2DFF" />
       </View>
     </View>
   )
