@@ -33,3 +33,11 @@ export default function HomeScreen() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "flex-start", alignItems: "center", backgroundColor: "#F3F3FF" },
+  logo: { width: 200, height: 100, resizeMode: "contain", marginVertical: 2 },
+  title: { fontSize: 24, color: "#2D2DFF", marginTop: 40, fontWeight: "bold", letterSpacing: 2, textTransform: "uppercase" },
+  input: { width: "80%", height: 40, borderColor: "#2D2DFF", borderWidth: 1, borderRadius: 8, paddingHorizontal: 10, backgroundColor: "#fff", fontSize: 16, color: "#222", marginTop: 40, marginBottom: 20 },
+  buttonContainer: { width: "80%", marginTop: 20, borderRadius: 8, overflow: "hidden" },
+});
+
